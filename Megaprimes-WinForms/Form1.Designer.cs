@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nudRunTimes = new System.Windows.Forms.NumericUpDown();
             this.tbOutput = new System.Windows.Forms.TextBox();
+            this.lItems = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThreadCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRunTimes)).BeginInit();
@@ -180,18 +181,28 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Location = new System.Drawing.Point(12, 163);
+            this.tbOutput.Location = new System.Drawing.Point(12, 181);
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ReadOnly = true;
-            this.tbOutput.Size = new System.Drawing.Size(385, 41);
+            this.tbOutput.Size = new System.Drawing.Size(385, 53);
             this.tbOutput.TabIndex = 11;
+            // 
+            // lItems
+            // 
+            this.lItems.FormattingEnabled = true;
+            this.lItems.ItemHeight = 15;
+            this.lItems.Location = new System.Drawing.Point(12, 105);
+            this.lItems.Name = "lItems";
+            this.lItems.Size = new System.Drawing.Size(233, 64);
+            this.lItems.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 216);
+            this.ClientSize = new System.Drawing.Size(409, 246);
+            this.Controls.Add(this.lItems);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.nudRunTimes);
             this.Controls.Add(this.label2);
@@ -226,5 +237,6 @@
         private Label label2;
         private NumericUpDown nudRunTimes;
         private TextBox tbOutput;
+        private ListBox lItems;
     }
 }
