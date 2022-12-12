@@ -37,12 +37,12 @@ namespace Megaprimes_Console
         /// Improved version of former 'GetMegaprimesUpTo' method
         /// Removes checking if they are prime and then checking if they are megaprime
         /// </summary>
-        /// <param name="number"></param>
-        public static List<uint> ReturnMegaprimesList(uint number)
+        /// <param name="maxnumber"></param>
+        public static List<uint> ReturnMegaprimesList(uint maxnumber)
         {
             List<uint> listMegaprimes = new List<uint>();
 
-            for (uint i = 0; i < number; i++)
+            for (uint i = 0; i < maxnumber; i++)
             {
                 if (IsMegaprime(i))
                 {
