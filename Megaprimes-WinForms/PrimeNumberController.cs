@@ -231,7 +231,6 @@ namespace Megaprimes_Console
         /// <returns></returns>
         public static TimeSpan MegaprimeFinderThreaded(uint iThreads, uint max)
         {
-            
             //Reset the list and thread count
             listMegaprimes = new List<uint>();
             countRemainingThreads = iThreads;
@@ -297,7 +296,6 @@ namespace Megaprimes_Console
                 {
                     localListMegaprimes.Add(i);
                 }
-                //Thread.Yield(); //Bad - do not do, slows it down a lot for no gain
             }
             foreach (uint i in localListMegaprimes)
             {
