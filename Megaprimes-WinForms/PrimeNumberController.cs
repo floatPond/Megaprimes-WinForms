@@ -34,8 +34,8 @@ namespace Megaprimes_Console
         #region Methods
 
         /// <summary>
-        /// Condenced version
-        /// Removes acquiring all prime numbers and then determining whether they are prime
+        /// Improved version of former 'GetMegaprimesUpTo' method
+        /// Removes checking if they are prime and then checking if they are megaprime
         /// </summary>
         /// <param name="number"></param>
         public static List<uint> ReturnMegaprimesList(uint number)
@@ -133,11 +133,20 @@ namespace Megaprimes_Console
             return true;
         }
 
+        /// <summary>
+        /// Returns the amount of Megaprimes in the list
+        /// </summary>
+        /// <returns></returns>
         public static uint ReturnMegaprimeCount()
         {
             return (uint)listMegaprimes.Count;
         }
 
+        /// <summary>
+        /// Returns the private list of Megaprimes
+        /// Used for displaying Megaprimes to users
+        /// </summary>
+        /// <returns></returns>
         public static List<uint> ReturnMegaprimeList()
         {
             return listMegaprimes;
@@ -225,6 +234,12 @@ namespace Megaprimes_Console
 
         #region My Threaded Solution
         
+        /// <summary>
+        /// Divides numbers between 0 and max between threads to acquire Megaprimes
+        /// </summary>
+        /// <param name="iThreads"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static TimeSpan MegaprimeFinderThreaded(uint iThreads, uint max)
         {
             
@@ -234,7 +249,6 @@ namespace Megaprimes_Console
 
             DateTime end;
             DateTime start = DateTime.Now;
-
 
             uint dividedmax = max / iThreads;
             uint dividedmaxholder = dividedmax;
@@ -275,6 +289,13 @@ namespace Megaprimes_Console
             return timespan;
         }
 
+        /// <summary>
+        /// Encased in its own function to ensure start and end do not change before thread is started
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         private static Thread CreateThread(uint id, uint start, uint end)
         {
             Thread thread = new Thread(p => ThreadMegaprimeFinder(id, start, end));
@@ -290,7 +311,7 @@ namespace Megaprimes_Console
                 {
                     localListMegaprimes.Add(i);
                 }
-                //Thread.Yield(); //Bad - do not do, slows it down a lot
+                //Thread.Yield(); //Bad - do not do, slows it down a lot for no gain
             }
             foreach (uint i in localListMegaprimes)
             {
