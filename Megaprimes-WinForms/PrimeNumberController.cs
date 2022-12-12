@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Megaprimes_Console
 {
+    /// <summary>
+    /// Static class that contains Prime and Megaprime functionality
+    /// </summary>
     public static class PrimeNumberController
     {
         #region Variables
@@ -19,7 +22,7 @@ namespace Megaprimes_Console
         /// Stores all of the mega primes from the threaded mega-prime acquiring
         /// Needs to use a list outside as all threads feed into it once they are finished
         /// </summary>
-        private static List<uint> listMegaPrimes = new List<uint>();
+        private static List<uint> listMegaprimes = new List<uint>();
 
         /// <summary>
         /// Used to determine how many threads are currently still running
@@ -35,18 +38,18 @@ namespace Megaprimes_Console
         /// Removes acquiring all prime numbers and then determining whether they are prime
         /// </summary>
         /// <param name="number"></param>
-        public static List<uint> ReturnMegaPrimesList(uint number)
+        public static List<uint> ReturnMegaprimesList(uint number)
         {
             DateTime end;
             DateTime start = DateTime.Now;
 
-            List<uint> listMegaPrimes = new List<uint>();
+            List<uint> listMegaprimes = new List<uint>();
 
             for (uint i = 0; i < number; i++)
             {
-                if (IsMegaPrime(i))
+                if (IsMegaprime(i))
                 {
-                    listMegaPrimes.Add(i);
+                    listMegaprimes.Add(i);
                 }
             }
 
@@ -55,7 +58,7 @@ namespace Megaprimes_Console
             TimeSpan timespan = end - start;
             Console.WriteLine(timespan.TotalSeconds.ToString() + " seconds");
 
-            return listMegaPrimes;
+            return listMegaprimes;
         }
 
         /// <summary>
@@ -63,25 +66,25 @@ namespace Megaprimes_Console
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static TimeSpan ReturnMegaPrimesTimeSpan(uint number)
+        public static TimeSpan ReturnMegaprimesTimeSpan(uint number)
         {
             DateTime end;
             DateTime start = DateTime.Now;
 
-            List<uint> listMegaPrimes = new List<uint>();
+            List<uint> listMegaprimes = new List<uint>();
 
             for (uint i = 0; i < number; i++)
             {
-                if (IsMegaPrime(i))
+                if (IsMegaprime(i))
                 {
-                    listMegaPrimes.Add(i);
+                    listMegaprimes.Add(i);
                 }
             }
 
             end = DateTime.Now;
 
             TimeSpan timespan = end - start;
-            Console.WriteLine(listMegaPrimes.Count);
+            Console.WriteLine(listMegaprimes.Count);
             Console.WriteLine(timespan.TotalSeconds.ToString() + " seconds");
 
             return timespan;
@@ -92,7 +95,7 @@ namespace Megaprimes_Console
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static bool IsMegaPrime(uint input)
+        public static bool IsMegaprime(uint input)
         {
             //Ensures input is great than, not divisible by 2, and whether it is a 2
             if (input < 2 || input % 2 == 0)
@@ -130,19 +133,29 @@ namespace Megaprimes_Console
             return true;
         }
 
+        public static uint ReturnMegaprimeCount()
+        {
+            return (uint)listMegaprimes.Count;
+        }
+
+        public static List<uint> ReturnMegaprimeList()
+        {
+            return listMegaprimes;
+        }
+
         #endregion
 
         #region Old Methods
 
         /// <summary>
-        /// Checks if the number is prime and then checks if they are megaprime
+        /// Checks if the number is prime and then checks if they are Megaprime
         /// Depracated due to being slower as it computes list twice
         /// </summary>
         /// <param name="number"></param>
-        public static void GetMegaPrimesUpTo(uint number)
+        public static void GetMegaprimesUpTo(uint number)
         {
             List<uint> listPrimes = new List<uint>();
-            List<uint> listMegaPrimes = new List<uint>();
+            List<uint> listMegaprimes = new List<uint>();
 
             for (uint i = 0; i < number; i++)
             {
@@ -154,9 +167,9 @@ namespace Megaprimes_Console
 
             foreach (uint prime in listPrimes)
             {
-                if (ContainsOnlyMegaPrimeNumbers(prime))
+                if (ContainsOnlyMegaprimeNumbers(prime))
                 {
-                    listMegaPrimes.Add(prime);
+                    listMegaprimes.Add(prime);
                 }
             }
 
@@ -193,7 +206,7 @@ namespace Megaprimes_Console
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        private static bool ContainsOnlyMegaPrimeNumbers(uint number)
+        private static bool ContainsOnlyMegaprimeNumbers(uint number)
         {
             foreach (char c in number.ToString())
             {
@@ -210,14 +223,13 @@ namespace Megaprimes_Console
 
         #endregion
 
-        #region My Threading Solution
-        //Threading - mine
+        #region My Threaded Solution
         
-        public static TimeSpan MegaPrimeFinderThreaded(uint iThreads, uint max)
+        public static TimeSpan MegaprimeFinderThreaded(uint iThreads, uint max)
         {
             
             //Reset the list and thread count
-            listMegaPrimes = new List<uint>();
+            listMegaprimes = new List<uint>();
             countRemainingThreads = iThreads;
 
             DateTime end;
@@ -251,7 +263,7 @@ namespace Megaprimes_Console
                 }
                 else
                 {
-                    Console.WriteLine(listMegaPrimes.Count);
+                    Console.WriteLine(listMegaprimes.Count);
                     break;
                 }
             }
@@ -265,24 +277,24 @@ namespace Megaprimes_Console
 
         private static Thread CreateThread(uint id, uint start, uint end)
         {
-            Thread thread = new Thread(p => ThreadMegaPrimeFinder(id, start, end));
+            Thread thread = new Thread(p => ThreadMegaprimeFinder(id, start, end));
             return thread;
         }
 
-        private static void ThreadMegaPrimeFinder(uint thread, uint min, uint max)
+        private static void ThreadMegaprimeFinder(uint thread, uint min, uint max)
         {
-            List<uint> localListMegaPrimes = new List<uint>();
+            List<uint> localListMegaprimes = new List<uint>();
             for (uint i = min; i <= max; i++)
             {
-                if (IsMegaPrime(i))
+                if (IsMegaprime(i))
                 {
-                    localListMegaPrimes.Add(i);
+                    localListMegaprimes.Add(i);
                 }
                 //Thread.Yield(); //Bad - do not do, slows it down a lot
             }
-            foreach (uint i in localListMegaPrimes)
+            foreach (uint i in localListMegaprimes)
             {
-                listMegaPrimes.Add(i);
+                listMegaprimes.Add(i);
             }
             countRemainingThreads--;
         }
