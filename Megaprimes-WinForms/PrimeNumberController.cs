@@ -164,7 +164,7 @@ namespace Megaprimes_Console
 
         /// <summary>
         /// Returns whether the number is prime
-        /// Inefficient as also checks 5 in Sqrt which takes longer for giant numbers
+        /// Inefficient for BIG primes as also checks 5 in Sqrt which takes longer for giant numbers
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
