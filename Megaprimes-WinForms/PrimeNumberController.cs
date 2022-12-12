@@ -40,9 +40,6 @@ namespace Megaprimes_Console
         /// <param name="number"></param>
         public static List<uint> ReturnMegaprimesList(uint number)
         {
-            DateTime end;
-            DateTime start = DateTime.Now;
-
             List<uint> listMegaprimes = new List<uint>();
 
             for (uint i = 0; i < number; i++)
@@ -52,11 +49,6 @@ namespace Megaprimes_Console
                     listMegaprimes.Add(i);
                 }
             }
-
-            end = DateTime.Now;
-
-            TimeSpan timespan = end - start;
-            Console.WriteLine(timespan.TotalSeconds.ToString() + " seconds");
 
             return listMegaprimes;
         }
@@ -84,9 +76,6 @@ namespace Megaprimes_Console
             end = DateTime.Now;
 
             TimeSpan timespan = end - start;
-            Console.WriteLine(listMegaprimes.Count);
-            Console.WriteLine(timespan.TotalSeconds.ToString() + " seconds");
-
             return timespan;
         }
 
@@ -277,15 +266,12 @@ namespace Megaprimes_Console
                 }
                 else
                 {
-                    Console.WriteLine(listMegaprimes.Count);
                     break;
                 }
             }
             end = DateTime.Now;
 
             TimeSpan timespan = end - start;
-            //Console.WriteLine(timespan.TotalSeconds.ToString() + " seconds");
-
             return timespan;
         }
 
