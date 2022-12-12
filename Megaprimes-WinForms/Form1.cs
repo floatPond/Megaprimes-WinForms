@@ -15,6 +15,9 @@ namespace Megaprimes_WinForms
 
         #region Methods
 
+        /// <summary>
+        /// Displays whether the input is prime or not
+        /// </summary>
         private void CheckIfPrime()
         {
             tbOutput.Text = "";
@@ -28,6 +31,9 @@ namespace Megaprimes_WinForms
             }
         }
 
+        /// <summary>
+        /// Displays whether the input is megaprime or not
+        /// </summary>
         private void CheckIfMegaPrime()
         {
             tbOutput.Text = "";
@@ -41,7 +47,11 @@ namespace Megaprimes_WinForms
             }
         }
 
-        private void FindMegaPrimesUpToNumber()
+        /// <summary>
+        /// Finds Megaprime numbers upto the input
+        /// Displays the total and average time as well as the amount, and a list of the numbers
+        /// </summary>
+        private void FindMegaprimesUpToNumber()
         {
             tbOutput.Text = "Finding all Megaprimes...";
             TimeSpan timespanTotal = new TimeSpan();
@@ -62,6 +72,9 @@ namespace Megaprimes_WinForms
             }
         }
 
+        /// <summary>
+        /// Sets the Numeric UpDown to the maximum number (Currently unint max)
+        /// </summary>
         private void SetInputToMax()
         {
             nudInput.Value = nudInput.Maximum;
@@ -83,7 +96,7 @@ namespace Megaprimes_WinForms
 
         private void bMegaPrimes_Click(object sender, EventArgs e)
         {
-            FindMegaPrimesUpToNumber();
+            FindMegaprimesUpToNumber();
         }
 
         private void bMax_Click(object sender, EventArgs e)
