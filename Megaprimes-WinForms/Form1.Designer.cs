@@ -69,32 +69,32 @@
             // 
             // bCheckIfPrime
             // 
-            this.bCheckIfPrime.Location = new System.Drawing.Point(262, 38);
+            this.bCheckIfPrime.Location = new System.Drawing.Point(251, 38);
             this.bCheckIfPrime.Name = "bCheckIfPrime";
-            this.bCheckIfPrime.Size = new System.Drawing.Size(135, 23);
+            this.bCheckIfPrime.Size = new System.Drawing.Size(146, 23);
             this.bCheckIfPrime.TabIndex = 1;
-            this.bCheckIfPrime.Text = "Check if Input is Prime";
+            this.bCheckIfPrime.Text = "1. Check if Input is Prime";
             this.bCheckIfPrime.UseVisualStyleBackColor = true;
             this.bCheckIfPrime.Click += new System.EventHandler(this.bCheckIfPrime_Click);
             // 
             // bMegaPrimes
             // 
-            this.bMegaPrimes.Location = new System.Drawing.Point(262, 105);
+            this.bMegaPrimes.Location = new System.Drawing.Point(251, 105);
             this.bMegaPrimes.Name = "bMegaPrimes";
-            this.bMegaPrimes.Size = new System.Drawing.Size(135, 40);
+            this.bMegaPrimes.Size = new System.Drawing.Size(146, 54);
             this.bMegaPrimes.TabIndex = 3;
-            this.bMegaPrimes.Text = "Calculate Megaprimes Up To Input";
+            this.bMegaPrimes.Text = "3. Calculate Megaprimes Up To Input";
             this.bMegaPrimes.UseVisualStyleBackColor = true;
             this.bMegaPrimes.Click += new System.EventHandler(this.bMegaPrimes_Click);
             // 
             // bCheckIfMegaprime
             // 
             this.bCheckIfMegaprime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bCheckIfMegaprime.Location = new System.Drawing.Point(262, 64);
+            this.bCheckIfMegaprime.Location = new System.Drawing.Point(251, 64);
             this.bCheckIfMegaprime.Name = "bCheckIfMegaprime";
-            this.bCheckIfMegaprime.Size = new System.Drawing.Size(135, 38);
+            this.bCheckIfMegaprime.Size = new System.Drawing.Size(146, 38);
             this.bCheckIfMegaprime.TabIndex = 4;
-            this.bCheckIfMegaprime.Text = "Check if Input is Megaprime";
+            this.bCheckIfMegaprime.Text = "2. Check if Input is Megaprime";
             this.bCheckIfMegaprime.UseVisualStyleBackColor = true;
             this.bCheckIfMegaprime.Click += new System.EventHandler(this.bCheckIfMegaprime_Click);
             // 
@@ -140,9 +140,9 @@
             // 
             // bMax
             // 
-            this.bMax.Location = new System.Drawing.Point(262, 13);
+            this.bMax.Location = new System.Drawing.Point(251, 13);
             this.bMax.Name = "bMax";
-            this.bMax.Size = new System.Drawing.Size(135, 23);
+            this.bMax.Size = new System.Drawing.Size(146, 23);
             this.bMax.TabIndex = 8;
             this.bMax.Text = "Max";
             this.bMax.UseVisualStyleBackColor = true;
@@ -153,9 +153,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 15);
+            this.label2.Size = new System.Drawing.Size(108, 15);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Run Times:";
+            this.label2.Text = "Run Times (3 only):";
             // 
             // nudRunTimes
             // 
