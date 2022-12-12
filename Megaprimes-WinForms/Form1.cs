@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace Megaprimes_WinForms
 {
+    /// <summary>
+    /// Main form containing user interactivity for finding prime, megaprime and all megaprimes up to a number
+    /// </summary>
     public partial class Form1 : Form
     {
         public Form1()
@@ -28,7 +31,7 @@ namespace Megaprimes_WinForms
         private void CheckIfMegaPrime()
         {
             tbOutput.Text = "";
-            if (PrimeNumberController.IsMegaPrime((uint)nudInput.Value))
+            if (PrimeNumberController.IsMegaprime((uint)nudInput.Value))
             {
                 tbOutput.Text = "Number IS Megaprime";
             }
@@ -44,12 +47,19 @@ namespace Megaprimes_WinForms
             TimeSpan timespanTotal = new TimeSpan();
             for (int i = 0; i < nudRunTimes.Value; i++)
             {
-                timespanTotal += PrimeNumberController.MegaPrimeFinderThreaded((uint)nudThreadCount.Value, (uint)nudInput.Value);
+                timespanTotal += PrimeNumberController.MegaprimeFinderThreaded((uint)nudThreadCount.Value, (uint)nudInput.Value);
             }
-            
-            tbOutput.Text = timespanTotal.TotalSeconds.ToString() + " seconds Total.";
+            string total = timespanTotal.TotalSeconds.ToString() + " seconds Total. ";
             timespanTotal = timespanTotal / (uint)nudRunTimes.Value;
-            tbOutput.Text += Environment.NewLine + (timespanTotal.TotalSeconds.ToString() + " seconds Average.");
+            tbOutput.Text = total + Environment.NewLine + (timespanTotal.TotalSeconds.ToString() + " seconds Average.");
+            tbOutput.Text += Environment.NewLine + PrimeNumberController.ReturnMegaprimeCount().ToString() + " megaprimes";
+
+            lItems.Items.Clear();
+            List<uint> listMegaprimes = PrimeNumberController.ReturnMegaprimeList();
+            foreach (uint megaprime in listMegaprimes)
+            {
+                lItems.Items.Add(megaprime.ToString());
+            }
         }
 
         private void SetInputToMax()
