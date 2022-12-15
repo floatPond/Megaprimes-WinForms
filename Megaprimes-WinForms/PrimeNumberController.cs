@@ -16,7 +16,7 @@ namespace Megaprimes_Console
         /// <summary>
         /// Pre-determined array of single-digit non-prime numbers
         /// </summary>
-        private static uint[] arrayNonPrime = new uint[] { 1, 4, 6, 8, 9 };
+        private static uint[] arrayNonPrime = new uint[] { 0, 1, 4, 6, 8, 9 };
 
         /// <summary>
         /// Stores all of the mega primes from the threaded mega-prime acquiring
